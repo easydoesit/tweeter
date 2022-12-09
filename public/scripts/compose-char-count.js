@@ -1,10 +1,6 @@
 $(document).ready(function() {
-// clear the textarea on focus
-  $('#tweet-text').focus(function() {
-  
-    $(this).val("");
-  
-  });
+
+  $('#tweet-text').focus();
 
   const maxCount = parseInt($('.counter').text());
  
