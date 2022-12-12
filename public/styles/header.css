@@ -1,4 +1,4 @@
-header {
+#user-header {
   width:100%;
   display: flex;
   justify-content: center;
@@ -8,6 +8,6 @@ header {
   background-color: #76C0DD;
 }
 
-header div img {
+.profile {
   margin-top: 130px;
 }

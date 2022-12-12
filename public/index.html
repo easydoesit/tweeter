@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -37,9 +37,9 @@
         <i class="fa-solid fa-angles-down"></i>
       </div>
     </nav>
-    <header>
+    <header id="user-header">
       <div>
-          <img src="/images/profile-hex.png"> 
+          <img src="/images/profile-hex.png" class="profile"> 
       </div>
       <br>
       <div>
@@ -61,6 +61,33 @@
           </div>
         </form>
       </section>
+      <section id="tweet">
+        <article class="tweet-container">
+          <header>
+            <div class="tweet-profile">
+            <img src="images/polarbear.png" class="profile-img">
+            <p class="user-name">Newton</p>
+            </div>
+            <div class="alias">
+                @SirIsaac
+            </div>
+          </header>
+          <div class="text">
+            If I have seen further it was by standing on the shoulders of giants.
+          </div>
+          <footer>
+            <div class="tweet-date">
+            10 days ago
+            </div>
+            <div class="tweet-icons">
+              <button><i class="fa-regular fa-flag"></i></button>
+              <button><i class="fa-solid fa-retweet"></i></button> 
+              <button class="likes"><i class="fa-solid fa-heart"></i><div class="like-count">1</div></button> 
+        
+            </div>
+          </footer>
+        </article>
+    </section>
      </main>
   </body>
 </html>
