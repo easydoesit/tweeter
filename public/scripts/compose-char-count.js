@@ -1,7 +1,5 @@
 $(document).ready(function() {
 
-  $('#tweet-text').focus();
-
   const maxCount = parseInt($('.counter').text());
  
   // count the remaining chars available and display on screen

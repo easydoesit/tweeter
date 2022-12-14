@@ -5,45 +5,23 @@
  */
 
 // Test / driver code (temporary). Eventually will get this from the server.
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
+$(document).ready(function() {
+  const format = window.timeago.format;
+  // Make the input the focus
+  $('#tweet-text').focus();
 
-// renderTweetsTakes in an array of Tweets and appends them to the tweets-container
-const renderTweets = function(tweets) {
-  for (let i in tweets) {
-    let $tweet = createTweetElement(tweets[i]);
-    $(document).ready(function() {
+  // renderTweetsTakes in an array of Tweets and appends them to the tweets-container
+  const renderTweets = function(tweets) {
+    for (let i in tweets) {
+      let $tweet = createTweetElement(tweets[i]);
       $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-    });
-  }
-};
+    }
+  };
 
 
-// createTweetElement takes a tweet object and returns <article> from it.
-const createTweetElement = function(tweetObject) {
-  const fullTweet = `<article class="tweet">
+  // createTweetElement takes a tweet object and returns <article> from it.
+  const createTweetElement = function(tweetObject) {
+    const fullTweet = `<article class="tweet">
     <header>
       <div class="tweet-profile">
       <img src="${tweetObject.user.avatars}" class="profile-img">
@@ -58,7 +36,7 @@ const createTweetElement = function(tweetObject) {
     </div>
     <footer>
       <div class="tweet-date">
-      ${tweetObject.created_at}
+      ${format(tweetObject.created_at)}
       </div>
       <div class="tweet-icons">
         <button><i class="fa-regular fa-flag"></i></button>
@@ -69,8 +47,32 @@ const createTweetElement = function(tweetObject) {
   </article>
 `;
 
-  return fullTweet;
+    return fullTweet;
 
-};
+  };
 
-renderTweets(data);
+  const loadTweets = function() {
+    $.ajax('/tweets', {method: 'GET'})
+      .then(function(data) {
+        console.log("data", data);
+        //$('#tweet-text').val('').focus();
+        renderTweets(data);
+      });
+  };
+
+
+  //
+  $("#tweetform").on('submit', (event) => {
+    event.preventDefault();
+    const data = $("#tweetform").serialize();
+    console.log(data);
+
+    $.post('/tweets', data, (response) => {
+      console.log('post response', response);
+    });
+    loadTweets();
+  });
+
+
+  loadTweets();
+});
