@@ -54,8 +54,7 @@ $(document).ready(function() {
   const loadTweets = function() {
     $.ajax('/tweets', {method: 'GET'})
       .then(function(data) {
-        console.log("data", data);
-        //$('#tweet-text').val('').focus();
+        $('#tweet-text').val('').focus();
         renderTweets(data);
       });
   };
@@ -65,7 +64,16 @@ $(document).ready(function() {
   $("#tweetform").on('submit', (event) => {
     event.preventDefault();
     const data = $("#tweetform").serialize();
-    console.log(data);
+    const $textArea = $('#tweet-text');
+    let string = $textArea.val();
+
+    if (string.length > 140) {
+      return alert("Post is too long.");
+    }
+
+    if (!string) {
+      return alert("enter some text");
+    }
 
     $.post('/tweets', data, (response) => {
       console.log('post response', response);

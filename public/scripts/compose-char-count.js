@@ -1,18 +1,25 @@
 $(document).ready(function() {
 
-  const maxCount = parseInt($('.counter').text());
- 
+  const maxCount = 140;
+  const $textArea = $('#tweet-text');
+
   // count the remaining chars available and display on screen
-  $('#tweet-text').keyup(function() {
+
+  const updateCount = function()  {
     const string = $(this).val();
     const count = maxCount - string.length;
     
-    $('.counter').text(count);
+    const counter = $(this).next().children().last();
+    counter.text(count);
 
     if (count < 0) {
-      $('.counter').css('color', 'red');
+      $(counter).addClass('red-text');
+    } else {
+      $(counter).removeClass('red-text');
     }
   
-  });
+  };
+
+  $textArea.on("input", updateCount);
 
 });
