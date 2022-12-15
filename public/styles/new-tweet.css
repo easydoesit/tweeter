@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
 }
+
 .button {
   font-family: 'Bungee', sans-serif;
   color: #fff;
@@ -30,4 +31,18 @@
 
 .counter {
   font-family: 'Bungee', sans-serif;
+}
+
+.errorbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  color: white;
+  height: 50px;
+  width: 100%;
+}
+
+.new-tweet {
+  display: none;
 }

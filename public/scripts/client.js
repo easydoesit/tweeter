@@ -7,20 +7,18 @@
 // Test / driver code (temporary). Eventually will get this from the server.
 $(document).ready(function() {
   const format = window.timeago.format;
-  // Make the input the focus
-  $('#tweet-text').focus();
 
   // renderTweetsTakes in an array of Tweets and appends them to the tweets-container
   const renderTweets = function(tweets) {
     for (let i in tweets) {
       let $tweet = createTweetElement(tweets[i]);
-      $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+      $("#tweets-container").append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
     }
   };
 
-
   // createTweetElement takes a tweet object and returns <article> from it.
   const createTweetElement = function(tweetObject) {
+    const safeHTML = `<div class="text">${escape(tweetObject.content.text)}</div>`;
     const fullTweet = `<article class="tweet">
     <header>
       <div class="tweet-profile">
@@ -31,9 +29,7 @@ $(document).ready(function() {
         ${tweetObject.user.handle}
       </div>
     </header>
-    <div class="text">
-    ${tweetObject.content.text}
-    </div>
+    ${safeHTML}
     <footer>
       <div class="tweet-date">
       ${format(tweetObject.created_at)}
@@ -48,39 +44,60 @@ $(document).ready(function() {
 `;
 
     return fullTweet;
-
   };
 
   const loadTweets = function() {
-    $.ajax('/tweets', {method: 'GET'})
-      .then(function(data) {
-        $('#tweet-text').val('').focus();
-        renderTweets(data);
-      });
+    $.ajax("/tweets", { method: "GET" }).then(function(data) {
+      $("#tweet-text").val("").focus();
+      $(".errobar").remove();
+      renderTweets(data);
+    });
   };
 
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
-  //
-  $("#tweetform").on('submit', (event) => {
+  // submit a tweet
+  $("#tweetform").on("submit", (event) => {
     event.preventDefault();
-    const data = $("#tweetform").serialize();
-    const $textArea = $('#tweet-text');
-    let string = $textArea.val();
+    const formData = $("#tweetform").serialize();
+    const $textArea = $("#tweet-text");
+    let $string = $textArea.val();
 
-    if (string.length > 140) {
-      return alert("Post is too long.");
+    if ($string.length > 140) {
+      const errorPlace = $("#tweetform label:first-child");
+      return errorPlace.after(errorMessage("Please shorten your post."));
     }
 
-    if (!string) {
-      return alert("enter some text");
+    if (!$string) {
+      const errorPlace = $("#tweetform label:first-child");
+      return errorPlace.after(errorMessage("Please enter text below."));
     }
 
-    $.post('/tweets', data, (response) => {
-      console.log('post response', response);
+    $.post("/tweets", formData, () => {
+      if ($(".errorbar").length) {
+        $(".errorbar").remove();
+      }
+      loadTweets();
     });
-    loadTweets();
-  });
 
+  });
+  
+  // errorMessage takes a string and a DOM element(where to place it) and returns an errorbar.
+  const errorMessage = function(string) {
+    const fullError = `<div class="errorbar">${string}</div>`;
+
+    return fullError;
+  };
+
+  $(".new-tweet-button").click(function() {
+
+    $(".new-tweet").slideDown("slow");
+    $("#tweet-text").focus();
+  });
 
   loadTweets();
 });

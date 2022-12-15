@@ -20,9 +20,19 @@ nav {
   margin: 0.4em 0;
  }
 
- .nav-right i{
-  display: flex;
-  justify-content: center;
-  margin-top: .4em;
+ .nav-right button i{
   color: red;
  }
+
+ .nav-right button {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding:.4em;
+  width: 100%;
+ }
+
+ .nav-right button:hover i{
+  color: #FFF;
+}
