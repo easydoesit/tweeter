@@ -93,8 +93,19 @@ $(document).ready(function() {
     return fullError;
   };
 
-  $(".new-tweet-button").click(function() {
 
+  $(".new-tweet-button").mouseenter(function() {
+    $(this).children().animate({
+      paddingTop: "0.4em"
+    }, 500);
+  });
+  $(".new-tweet-button").mouseout(function() {
+    $(this).children().animate({
+      paddingTop: "0em"
+    }, 500);
+  });
+
+  $(".new-tweet-button").click(function() {
     $(".new-tweet").slideDown("slow");
     $("#tweet-text").focus();
   });
