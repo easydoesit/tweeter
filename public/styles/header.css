@@ -11,3 +11,26 @@
 .profile {
   margin-top: 130px;
 }
+
+/* Tablet Styles */
+@media only screen and (min-width: 768px) {
+  #user-header {
+    margin: 10px;
+    margin-top: 200px;
+    width: 40%;
+    max-height: 400px;
+    justify-content:flex-start;
+  }
+  .profile {
+    margin-top: 10px;
+    
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  #user-header {
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 40%;
+  }
+}

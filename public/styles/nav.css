@@ -16,18 +16,21 @@ nav {
   font-size: 40px;
  }
 
- .nav-right p{
+ .nav-right button p{
   margin: 0;
  }
 
  .nav-right button i{
   color: red;
+  display: flex;
+  justify-content: center;
  }
 
  .nav-right button {
   all: unset;
   cursor: pointer;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   padding:.4em;
   width: 100%;

@@ -10,6 +10,7 @@ $(document).ready(function() {
 
   // renderTweetsTakes in an array of Tweets and appends them to the tweets-container
   const renderTweets = function(tweets) {
+    console.log("tweets", tweets);
     for (let i in tweets) {
       let $tweet = createTweetElement(tweets[i]);
       $("#tweets-container").append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
@@ -50,7 +51,20 @@ $(document).ready(function() {
     $.ajax("/tweets", { method: "GET" }).then(function(data) {
       $("#tweet-text").val("").focus();
       $(".errobar").remove();
-      renderTweets(data);
+      console.log(data);
+      const numTweets = $("article.tweet").length;
+      console.log(numTweets);
+      if (!$("article.tweet").length) {
+      
+        renderTweets(data);
+      
+      } else {
+        const lastTweet = [];
+        lastTweet.push(data[numTweets]);
+
+        renderTweets(lastTweet);
+      }
+    
     });
   };
 
