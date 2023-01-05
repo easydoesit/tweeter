@@ -40,5 +40,5 @@ The following functions are used in the clients.js file:
 
 ## Final Product
 
-!["Screenshot of Iphone Version"](https://github.com/easydoesit/tinyapp/blob/master/docs/Phone.png)
-!["Screenshot ofDesktop Version"](https://github.com/easydoesit/tinyapp/blob/master/docs/Desktop.png)
+!["Screenshot of Iphone Version"](https://github.com/easydoesit/tweeter/blob/master/docs/Phone.png)
+!["Screenshot ofDesktop Version"](https://github.com/easydoesit/tweeter/blob/master/docs/Desktop.png)
