@@ -8,7 +8,7 @@
 $(document).ready(function() {
   const format = window.timeago.format;
 
-  // renderTweetsTakes in an array of Tweets and appends them to the tweets-container
+  // renderTweets takes in an array of Tweets and appends them to the tweets-container
   const renderTweets = function(tweets) {
     console.log("tweets", tweets);
     for (let i in tweets) {
