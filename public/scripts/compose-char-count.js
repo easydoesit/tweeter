@@ -42,7 +42,6 @@ $(document).ready(function() {
     $(".scroll-button").removeClass("display-none");
   });
 
-
   $(".scroll-button").click(function() {
     $("html").animate({
       scrollTop: 0
