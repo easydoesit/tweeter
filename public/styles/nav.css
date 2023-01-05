@@ -1,41 +1,17 @@
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 120px;
-  width:100%;
-  background-color: #4056A1;
-  color: #FFF;
-  padding: 0 1.5em 0 1.5em;
-  position: absolute;
-  top:0px;
-}
+/* Error: expected ";".
+ *   ,
+ * 3 | nav {
+ *   |     ^
+ *   '
+ *   sass/nav.scss 3:5  root stylesheet */
 
- nav span {
-  font-family: 'Bungee', sans-serif;
-  font-size: 40px;
- }
-
- .nav-right button p{
-  margin: 0;
- }
-
- .nav-right button i{
-  color: red;
-  display: flex;
-  justify-content: center;
- }
-
- .nav-right button {
-  all: unset;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding:.4em;
-  width: 100%;
- }
-
- .nav-right button:hover i{
-  color: #FFF;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: expected ";".\a   \2577 \a 3 \2502  nav {\a   \2502      ^\a   \2575 \a   sass/nav.scss 3:5  root stylesheet';
 }

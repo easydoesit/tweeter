@@ -1,0 +1,43 @@
+@import 'variables'
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 120px;
+  width: 100%;
+  background-color: #a14040;
+  color: #FFF;
+  padding: 0 1.5em 0 1.5em;
+  position: absolute;
+  top: 0px;
+}
+
+nav span {
+  font-family: 'Bungee', sans-serif;
+  font-size: 40px;
+}
+
+.nav-right button p {
+  margin: 0;
+}
+
+.nav-right button i {
+  color: red;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-right button {
+  all: unset;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: .4em;
+  width: 100%;
+}
+
+.nav-right button:hover i {
+  color: #FFF;
+}

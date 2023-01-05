@@ -1,5 +1,5 @@
 #user-header {
-  width: 100%;
+  width:100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,12 +19,14 @@
     margin-top: 200px;
     width: 40%;
     max-height: 400px;
-    justify-content: flex-start;
+    justify-content:flex-start;
   }
   .profile {
     margin-top: 10px;
+    
   }
 }
+
 @media only screen and (min-width: 1024px) {
   #user-header {
     margin-left: 30px;

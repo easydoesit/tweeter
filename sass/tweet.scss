@@ -1,4 +1,4 @@
-.tweet {
+.tweet{
   display: flex;
   flex-direction: column;
   margin-top: 35px;
@@ -7,7 +7,7 @@
 }
 
 .tweet:hover {
-  box-shadow: 10px 10px #c9cae2;
+    box-shadow: 10px 10px #c9cae2;
 }
 
 .tweet header {
@@ -49,14 +49,12 @@
   padding-top: 12px;
   font-size: 14px;
 }
-
 .tweet-icons {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
 }
-
-.tweet-icons button {
+.tweet-icons button{
   border: none;
   color: #47569c;
 }
@@ -76,5 +74,5 @@
 }
 
 .red-text {
-  color: red;
+  color:red;
 }
