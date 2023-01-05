@@ -47,13 +47,17 @@ $(document).ready(function() {
     return fullTweet;
   };
 
+  // load tweets
   const loadTweets = function() {
     $.ajax("/tweets", { method: "GET" }).then(function(data) {
       $("#tweet-text").val("").focus();
       $(".errobar").remove();
-      console.log(data);
+
       const numTweets = $("article.tweet").length;
-      console.log(numTweets);
+ 
+
+      //check if tweets are already displayed
+      
       if (!$("article.tweet").length) {
       
         renderTweets(data);
@@ -68,6 +72,7 @@ $(document).ready(function() {
     });
   };
 
+  //escape function for safe messages
   const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
@@ -113,6 +118,7 @@ $(document).ready(function() {
       paddingTop: "0.4em"
     }, 500);
   });
+  
   $(".new-tweet-button").mouseout(function() {
     $(this).children().animate({
       paddingTop: "0em"

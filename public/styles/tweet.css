@@ -5,12 +5,7 @@
   border: 4px solid;
   padding: 1em;
 }
-
-.tweet:hover {
-  box-shadow: 10px 10px #c9cae2;
-}
-
-.tweet header {
+.tweet .tweet header {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -19,6 +14,10 @@
   background-image: none;
   background-color: rgba(0, 0, 0, 0);
   margin-bottom: 20px;
+}
+
+.tweet:hover {
+  box-shadow: 10px 10px #c9cae2;
 }
 
 .tweet-profile {

@@ -1,4 +1,13 @@
 $font-stack: 'Source Sans Pro', sans-serif;
+$deco-font: 'Bungee', sans-serif;
 $font-color: #545149;
 $font-size: 24px;
 $bg-color: #f4f1ec;
+$branding-color: #47569c;
+$error-color: red;
+
+@mixin middle() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
