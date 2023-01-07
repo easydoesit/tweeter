@@ -52,5 +52,13 @@ $(document).ready(function() {
       $(".nav-right").removeClass("display-none");
     });
   });
+  // if the window is at the top of the page show the nav
+  $(window).scroll(function() {
+    if ($(window).scrollTop() == 0) {
+      $(".scroll-button").addClass("display-none");
+      $(".nav-right").removeClass("display-none");
+    }
+  
+  });
 
 });
