@@ -13,7 +13,9 @@ $(document).ready(function() {
     console.log("tweets", tweets);
     for (let i in tweets) {
       let $tweet = createTweetElement(tweets[i]);
-      $("#tweets-container").append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+      $("#tweets-container").prepend($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+      
+  
     }
   };
 
@@ -100,11 +102,12 @@ $(document).ready(function() {
         $(".errorbar").remove();
       }
       loadTweets();
+      $(".counter").text(140);
     });
 
   });
   
-  // errorMessage takes a string and a DOM element(where to place it) and returns an errorbar.
+  // errorMessage takes a string and returns an errorbar.
   const errorMessage = function(string) {
     const fullError = `<div class="errorbar">${string}</div>`;
 
